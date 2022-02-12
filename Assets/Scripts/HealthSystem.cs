@@ -31,7 +31,8 @@ public class HealthSystem : MonoBehaviour, IDamageable
 
     public void Hit(Vector2 launch)
     {
-        if (isDied) return;
+        if (isDied)
+            return;
 
         if (knockback)
         {
