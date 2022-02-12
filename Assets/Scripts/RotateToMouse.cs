@@ -108,7 +108,7 @@ public class RotateToMouse : MonoBehaviour
             {
                 Vector2 bowPosition = transform.position;
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(value);
-                direction = mousePos - bowPosition;
+                direction = bowPosition - mousePos;
                 transform.right = direction;
                 launchForce = Mathf.Clamp(Vector2.Distance(bowPosition, mousePos), launchForceRange.x, launchForceRange.y);
             }
