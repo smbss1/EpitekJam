@@ -6,6 +6,11 @@ using UnityEngine;
 public class Damager : MonoBehaviour
 {
     [SerializeField] private IntReference damageAmount;
+    
+    public IntReference DamageAmout
+    {
+        get { return damageAmount; }
+    }
     public void Damage(Collider2D collider)
     {
         IDamageable damageable = collider.GetComponent<IDamageable>();
