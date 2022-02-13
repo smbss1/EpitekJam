@@ -30,6 +30,14 @@ public class Database
             Debug.Log(e.ToString());
         }
     }
+    
+    public void DeleteData()
+    {
+        if (File.Exists(persistentPath))
+        {
+            File.Delete(persistentPath);
+        }
+    }
 
     public void LoadData()
     {
