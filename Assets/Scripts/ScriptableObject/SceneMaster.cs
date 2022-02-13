@@ -48,6 +48,12 @@ public class SceneMaster : ScriptableObject
     {
         LoadScene(SceneManager.GetActiveScene().name);
     }
+    
+    public void ReloadSceneWithFade()
+    {
+        LoadSceneWithFade(SceneManager.GetActiveScene().name);
+    }
+    
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380c64fb213db654a825bc397ae1089a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SuccessList: 
-  DeblockedLevel: 0
+  SuccessList: 00000000
+  DeblockedLevel: 1
 --- !u!114 &488176715
 MonoBehaviour:
   m_ObjectHideFlags: 0

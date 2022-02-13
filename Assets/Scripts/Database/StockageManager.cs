@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,7 @@ public class StockageManager : MonoBehaviour
     private void Awake()
     {
         if (instance != null)
-            Debug.Log("pas bon l‡");
+            Debug.Log("pas bon l√†");
         instance = this;
     }
 
@@ -42,5 +43,11 @@ public class StockageManager : MonoBehaviour
             DeblockedLevel++;
             database.SaveData();
         }
+    }
+
+    [ContextMenu("Remove Save file")]
+    void RemoveSaveFile()
+    {
+        new Database("Stockage.json", this).DeleteData();
     }
 }
