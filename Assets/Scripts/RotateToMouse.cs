@@ -22,8 +22,10 @@ public class RotateToMouse : MonoBehaviour
     
     [SerializeField, LabelText("Ground Radius")] float m_GroundedRadius = .2f;
     [SerializeField, LabelText("What Is Ground")] LayerMask m_WhatIsGround;
+    [SerializeField, LabelText("What Is Wall")] LayerMask m_WhatIsWall;
 
     float launchForce = 10;
+    float wallRayDistance = .52f;
     GameObject[] points;
     Vector2 direction;
     
@@ -67,6 +69,8 @@ public class RotateToMouse : MonoBehaviour
 
     void Update()
     {
+        CheckWallCollision();
+
         if (IsHook)
         {
             transform.position = HookPosition;
@@ -74,8 +78,7 @@ public class RotateToMouse : MonoBehaviour
             rb2d.gravityScale = 0;
             m_bIsGrounded = true;
         }
-
-        if (!IsHook)
+        else
         {
             RaycastHit2D hitGround = Physics2D.CircleCast(transform.position, m_GroundedRadius, Vector2.down, .2f, m_WhatIsGround);
             if (hitGround.collider != null)
@@ -97,6 +100,22 @@ public class RotateToMouse : MonoBehaviour
         for (int i = 0; i < numberOfPoints; ++i)
         {
             points[i].transform.position = PointPosition(i * spaceBetweenPoints);
+        }
+    }
+
+    void CheckWallCollision()
+    {
+        RaycastHit2D left = Physics2D.Raycast(transform.position, Vector2.left, wallRayDistance, m_WhatIsWall);
+        RaycastHit2D right = Physics2D.Raycast(transform.position, Vector2.right, wallRayDistance, m_WhatIsWall);
+        if (right.collider != null || left.collider != null)
+        {
+            // rb2d.gravityScale = .2f;
+            rb2d.drag = 10;
+        }
+        else
+        {
+            rb2d.drag = 0;
+            // rb2d.gravityScale = 1;
         }
     }
 
@@ -136,8 +155,8 @@ public class RotateToMouse : MonoBehaviour
         if (m_bIsGrounded || IsHook)
         {
             rb2d.drag = 0;
-            Propulse();
             rb2d.gravityScale = 1;
+            Propulse();
             IsHook = false;
         }
     }
@@ -173,5 +192,8 @@ public class RotateToMouse : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, m_GroundedRadius);
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, Vector2.right * wallRayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.left * wallRayDistance);
     }
 }
