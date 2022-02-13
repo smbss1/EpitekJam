@@ -91,6 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameLevel: Level646
+  LevelId: 0
+  image: {fileID: 4943515991959939123}
+  button: {fileID: 4943515991959939120}
 --- !u!114 &4943515991959939120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +133,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4943515991959939123}
   m_OnClick:
     m_PersistentCalls:

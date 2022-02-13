@@ -35,9 +35,12 @@ public class StockageManager : MonoBehaviour
         database.SaveData();
     }
 
-    public void AddDeblockedLevel()
+    public void AddDeblockedLevel(int level)
     {
-        DeblockedLevel++;
-        database.SaveData();
+        if (DeblockedLevel == level)
+        {
+            DeblockedLevel++;
+            database.SaveData();
+        }
     }
 }

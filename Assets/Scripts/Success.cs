@@ -6,6 +6,7 @@ public class Success : MonoBehaviour
 {
     public Text description;
     public GameObject successMenu;
+    public GameObject VictoryMenu;
     public static Success instance;
 
     public void Awake()
