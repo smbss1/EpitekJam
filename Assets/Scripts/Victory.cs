@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 
 public class Victory : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Win(Collider2D collider)
     {
-        if (collision.tag == "Player")
+        if (collider.tag == "Player")
         {
-            Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
+            Rigidbody2D rb = collider.GetComponent<Rigidbody2D>();
             rb.velocity = Vector3.zero;
             StartCoroutine(EventEndLevel());
         }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Sirenix.OdinInspector;
+using UnityAtoms.BaseAtoms;
 
 public class RotateToMouse : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class RotateToMouse : MonoBehaviour
     [SerializeField, LabelText("Ground Radius")] float m_GroundedRadius = .2f;
     [SerializeField, LabelText("What Is Ground")] LayerMask m_WhatIsGround;
     [SerializeField, LabelText("What Is Wall")] LayerMask m_WhatIsWall;
+
+    [SerializeField] private VoidBaseEventReference onPropulse;
 
     float launchForce = 10;
     float wallRayDistance = .52f;
@@ -122,6 +125,7 @@ public class RotateToMouse : MonoBehaviour
     void Propulse()
     {
         rb2d.velocity = direction.normalized * launchForce;
+        onPropulse.Event.Raise();
     }
 
     Vector2 PointPosition(float t)

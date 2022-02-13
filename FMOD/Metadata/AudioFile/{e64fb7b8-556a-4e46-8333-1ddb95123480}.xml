@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e64fb7b8-556a-4e46-8333-1ddb95123480}">
+		<property name="assetPath">
+			<value>menu-navigate-03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.11891156462585034</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fb51bac4-5c0f-471c-865c-fa7f2f210929}</destination>
+		</relationship>
+	</object>
+</objects>
